@@ -1,0 +1,53 @@
+.bx {
+    display: none;
+
+    @include responsive() {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 10%;
+        position: relative;
+    }
+}
+
+.bx::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 10%;
+    border-radius: 20px;
+    background-color: #fff;
+    top: 30%;
+    left: 15%;
+    transition: 1s ease;
+
+}
+
+.bx::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    border-radius: 20px;
+    background-color: #fff;
+    top: 60%;
+    left: 32%;
+    transition: 1s ease;
+}
+
+#hamburger-check:checked ~ label .bx:after{
+    transform: rotate(225deg);
+
+    top: 40%;
+    left: 15%;
+}
+
+#hamburger-check:checked ~ label .bx:before{
+    transform: rotate(-225deg);
+
+    top: 40%;
+    left: 15%;
+
+    width: 70%;
+    height: 10%;
+}
